@@ -1,0 +1,132 @@
+2022-11-15 10:26:39,434 TRACE o.e.d.j.JdbsUserDAO [main] Start method JdbsUserDao getById
+2022-11-15 10:26:40,069 INFO o.e.d.j.JdbsUserDAO [main] returning the user by id
+2022-11-15 10:26:40,072 TRACE o.e.d.j.JdbsUserDAO [main] End method JdbsUserDao getById
+2022-11-15 10:26:40,078 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO getAllProductsUser
+2022-11-15 10:26:40,116 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO getAllProductUser
+2022-11-15 10:26:40,116 TRACE o.e.d.j.JdbcProductDAO [main] Start method JdbsProductDao getById
+2022-11-15 10:26:40,148 INFO o.e.d.j.JdbcProductDAO [main] returning the product by id
+2022-11-15 10:26:40,149 TRACE o.e.d.j.JdbcProductDAO [main] End method JdbsProductDao getById
+2022-11-15 10:26:40,151 TRACE o.e.d.j.JdbsOrderDAO [main] Start method JdbsOrderDao add
+2022-11-15 10:26:40,199 ERROR o.e.d.j.JdbsOrderDAO [main] No new order added!!!
+2022-11-15 10:26:40,200 TRACE o.e.d.j.JdbsOrderDAO [main] End method JdbsUserDao add
+2022-11-15 10:26:40,200 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:26:40,481 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:29:30,539 TRACE o.e.d.j.JdbsUserDAO [main] Start method JdbsUserDao getById
+2022-11-15 10:29:31,211 INFO o.e.d.j.JdbsUserDAO [main] returning the user by id
+2022-11-15 10:29:31,211 TRACE o.e.d.j.JdbsUserDAO [main] End method JdbsUserDao getById
+2022-11-15 10:29:31,227 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO getAllProductsUser
+2022-11-15 10:29:31,258 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO getAllProductUser
+2022-11-15 10:29:31,258 TRACE o.e.d.j.JdbcProductDAO [main] Start method JdbsProductDao getById
+2022-11-15 10:29:31,289 INFO o.e.d.j.JdbcProductDAO [main] returning the product by id
+2022-11-15 10:29:31,289 TRACE o.e.d.j.JdbcProductDAO [main] End method JdbsProductDao getById
+2022-11-15 10:29:31,289 TRACE o.e.d.j.JdbsOrderDAO [main] Start method JdbsOrderDao add
+2022-11-15 10:29:31,352 ERROR o.e.d.j.JdbsOrderDAO [main] No new order added!!!
+2022-11-15 10:29:31,352 TRACE o.e.d.j.JdbsOrderDAO [main] End method JdbsUserDao add
+2022-11-15 10:29:31,352 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:29:31,430 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:32:09,311 TRACE o.e.d.j.JdbsUserDAO [main] Start method JdbsUserDao getById
+2022-11-15 10:32:09,889 INFO o.e.d.j.JdbsUserDAO [main] returning the user by id
+2022-11-15 10:32:09,889 TRACE o.e.d.j.JdbsUserDAO [main] End method JdbsUserDao getById
+2022-11-15 10:32:09,905 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO getAllProductsUser
+2022-11-15 10:32:09,936 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO getAllProductUser
+2022-11-15 10:32:09,936 TRACE o.e.d.j.JdbcProductDAO [main] Start method JdbsProductDao getById
+2022-11-15 10:32:09,967 INFO o.e.d.j.JdbcProductDAO [main] returning the product by id
+2022-11-15 10:32:09,967 TRACE o.e.d.j.JdbcProductDAO [main] End method JdbsProductDao getById
+2022-11-15 10:32:09,967 TRACE o.e.d.j.JdbsOrderDAO [main] Start method JdbsOrderDao add
+2022-11-15 10:32:10,014 ERROR o.e.d.j.JdbsOrderDAO [main] No new order added!!!
+2022-11-15 10:32:10,014 TRACE o.e.d.j.JdbsOrderDAO [main] End method JdbsUserDao add
+2022-11-15 10:32:10,014 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:32:10,108 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:33:23,951 TRACE o.e.d.j.JdbsUserDAO [main] Start method JdbsUserDao getById
+2022-11-15 10:33:24,545 INFO o.e.d.j.JdbsUserDAO [main] returning the user by id
+2022-11-15 10:33:24,545 TRACE o.e.d.j.JdbsUserDAO [main] End method JdbsUserDao getById
+2022-11-15 10:33:24,561 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO getAllProductsUser
+2022-11-15 10:33:24,592 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO getAllProductUser
+2022-11-15 10:33:24,592 TRACE o.e.d.j.JdbcProductDAO [main] Start method JdbsProductDao getById
+2022-11-15 10:33:24,623 INFO o.e.d.j.JdbcProductDAO [main] returning the product by id
+2022-11-15 10:33:24,623 TRACE o.e.d.j.JdbcProductDAO [main] End method JdbsProductDao getById
+2022-11-15 10:33:24,623 TRACE o.e.d.j.JdbsOrderDAO [main] Start method JdbsOrderDao add
+2022-11-15 10:33:24,686 ERROR o.e.d.j.JdbsOrderDAO [main] No new order added!!!
+2022-11-15 10:33:24,686 TRACE o.e.d.j.JdbsOrderDAO [main] End method JdbsUserDao add
+2022-11-15 10:33:24,686 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:33:24,764 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:35:26,017 TRACE o.e.d.j.JdbsUserDAO [main] Start method JdbsUserDao getById
+2022-11-15 10:35:26,627 INFO o.e.d.j.JdbsUserDAO [main] returning the user by id
+2022-11-15 10:35:26,627 TRACE o.e.d.j.JdbsUserDAO [main] End method JdbsUserDao getById
+2022-11-15 10:35:26,642 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO getAllProductsUser
+2022-11-15 10:35:26,673 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO getAllProductUser
+2022-11-15 10:35:26,673 TRACE o.e.d.j.JdbcProductDAO [main] Start method JdbsProductDao getById
+2022-11-15 10:35:26,705 INFO o.e.d.j.JdbcProductDAO [main] returning the product by id
+2022-11-15 10:35:26,705 TRACE o.e.d.j.JdbcProductDAO [main] End method JdbsProductDao getById
+2022-11-15 10:35:26,705 TRACE o.e.d.j.JdbsOrderDAO [main] Start method JdbsOrderDao add
+2022-11-15 10:35:26,752 ERROR o.e.d.j.JdbsOrderDAO [main] No new order added!!!
+2022-11-15 10:35:26,752 TRACE o.e.d.j.JdbsOrderDAO [main] End method JdbsUserDao add
+2022-11-15 10:35:26,752 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:35:26,845 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:36:58,569 TRACE o.e.d.j.JdbsUserDAO [main] Start method JdbsUserDao getById
+2022-11-15 10:36:59,162 INFO o.e.d.j.JdbsUserDAO [main] returning the user by id
+2022-11-15 10:36:59,162 TRACE o.e.d.j.JdbsUserDAO [main] End method JdbsUserDao getById
+2022-11-15 10:36:59,178 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO getAllProductsUser
+2022-11-15 10:36:59,225 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO getAllProductUser
+2022-11-15 10:36:59,225 TRACE o.e.d.j.JdbcProductDAO [main] Start method JdbsProductDao getById
+2022-11-15 10:36:59,256 INFO o.e.d.j.JdbcProductDAO [main] returning the product by id
+2022-11-15 10:36:59,256 TRACE o.e.d.j.JdbcProductDAO [main] End method JdbsProductDao getById
+2022-11-15 10:36:59,272 TRACE o.e.d.j.JdbsOrderDAO [main] Start method JdbsOrderDao add
+2022-11-15 10:36:59,319 ERROR o.e.d.j.JdbsOrderDAO [main] No new order added!!!
+2022-11-15 10:36:59,319 TRACE o.e.d.j.JdbsOrderDAO [main] End method JdbsUserDao add
+2022-11-15 10:36:59,319 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:36:59,381 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:37:57,602 TRACE o.e.d.j.JdbsUserDAO [main] Start method JdbsUserDao getById
+2022-11-15 10:37:58,289 INFO o.e.d.j.JdbsUserDAO [main] returning the user by id
+2022-11-15 10:37:58,289 TRACE o.e.d.j.JdbsUserDAO [main] End method JdbsUserDao getById
+2022-11-15 10:37:58,305 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO getAllProductsUser
+2022-11-15 10:37:58,336 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO getAllProductUser
+2022-11-15 10:37:58,352 TRACE o.e.d.j.JdbsOrderDAO [main] Start method JdbsOrderDao add
+2022-11-15 10:37:58,414 ERROR o.e.d.j.JdbsOrderDAO [main] No new order added!!!
+2022-11-15 10:37:58,414 TRACE o.e.d.j.JdbsOrderDAO [main] End method JdbsUserDao add
+2022-11-15 10:37:58,414 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:37:58,430 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:39:57,286 TRACE o.e.d.j.JdbsUserDAO [main] Start method JdbsUserDao getById
+2022-11-15 10:39:57,880 INFO o.e.d.j.JdbsUserDAO [main] returning the user by id
+2022-11-15 10:39:57,880 TRACE o.e.d.j.JdbsUserDAO [main] End method JdbsUserDao getById
+2022-11-15 10:39:57,896 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO getAllProductsUser
+2022-11-15 10:39:57,927 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO getAllProductUser
+2022-11-15 10:39:57,927 TRACE o.e.d.j.JdbcProductDAO [main] Start method JdbsProductDao getById
+2022-11-15 10:39:57,958 INFO o.e.d.j.JdbcProductDAO [main] returning the product by id
+2022-11-15 10:39:57,958 TRACE o.e.d.j.JdbcProductDAO [main] End method JdbsProductDao getById
+2022-11-15 10:39:57,958 TRACE o.e.d.j.JdbsOrderDAO [main] Start method JdbsOrderDao add
+2022-11-15 10:39:58,036 INFO o.e.d.j.JdbsOrderDAO [main] add new order
+2022-11-15 10:39:58,036 TRACE o.e.d.j.JdbsOrderDAO [main] End method JdbsUserDao add
+2022-11-15 10:39:58,036 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:39:58,099 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:47:25,673 TRACE o.e.d.j.JdbsUserDAO [main] Start method JdbsUserDao getById
+2022-11-15 10:47:26,345 INFO o.e.d.j.JdbsUserDAO [main] returning the user by id
+2022-11-15 10:47:26,345 TRACE o.e.d.j.JdbsUserDAO [main] End method JdbsUserDao getById
+2022-11-15 10:47:26,376 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO getAllProductsUser
+2022-11-15 10:47:26,408 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO getAllProductUser
+2022-11-15 10:47:26,408 TRACE o.e.d.j.JdbcProductDAO [main] Start method JdbsProductDao getById
+2022-11-15 10:47:26,439 INFO o.e.d.j.JdbcProductDAO [main] returning the product by id
+2022-11-15 10:47:26,439 TRACE o.e.d.j.JdbcProductDAO [main] End method JdbsProductDao getById
+2022-11-15 10:47:26,439 TRACE o.e.d.j.JdbsOrderDAO [main] Start method JdbsOrderDao add
+2022-11-15 10:47:26,548 INFO o.e.d.j.JdbsOrderDAO [main] add new order
+2022-11-15 10:47:26,548 TRACE o.e.d.j.JdbsOrderDAO [main] End method JdbsUserDao add
+2022-11-15 10:47:26,548 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 10:47:26,611 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 12:24:03,196 TRACE o.e.d.j.JdbsUserDAO [main] Start method JdbsUserDao getById
+2022-11-15 12:24:03,817 INFO o.e.d.j.JdbsUserDAO [main] returning the user by id
+2022-11-15 12:24:03,820 TRACE o.e.d.j.JdbsUserDAO [main] End method JdbsUserDao getById
+2022-11-15 12:24:03,842 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO getAllProductsUser
+2022-11-15 12:24:03,878 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO getAllProductUser
+2022-11-15 12:24:03,878 TRACE o.e.d.j.JdbcProductDAO [main] Start method JdbsProductDao getById
+2022-11-15 12:24:03,910 INFO o.e.d.j.JdbcProductDAO [main] returning the product by id
+2022-11-15 12:24:03,911 TRACE o.e.d.j.JdbcProductDAO [main] End method JdbsProductDao getById
+2022-11-15 12:24:03,912 TRACE o.e.d.j.JdbsOrderDAO [main] Start method JdbsOrderDao add
+2022-11-15 12:24:03,973 INFO o.e.d.j.JdbsOrderDAO [main] add new order
+2022-11-15 12:24:03,974 TRACE o.e.d.j.JdbsOrderDAO [main] End method JdbsUserDao add
+2022-11-15 12:24:03,974 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 12:24:04,029 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO removeAllProductsUser
+2022-11-15 12:24:12,195 TRACE o.e.d.j.JdbsUserDAO [main] Start method JdbsUserDao getById
+2022-11-15 12:24:12,794 INFO o.e.d.j.JdbsUserDAO [main] returning the user by id
+2022-11-15 12:24:12,797 TRACE o.e.d.j.JdbsUserDAO [main] End method JdbsUserDao getById
+2022-11-15 12:24:12,803 TRACE o.e.d.j.JdbsShoppingCartDAO [main] Start method JdbsShoppingCartDAO getAllProductsUser
+2022-11-15 12:24:12,842 TRACE o.e.d.j.JdbsShoppingCartDAO [main] End method JdbsShoppingCartDAO getAllProductUser
