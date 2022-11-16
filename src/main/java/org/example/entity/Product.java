@@ -1,9 +1,24 @@
 package org.example.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "products")
 public class Product {
+    @Id
+    @Column(name = "product_id")
     private int productId;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "weight")
     private double weight;
+
+    @Column(name = "price")
     private int price;
 
     public int getProductId() {

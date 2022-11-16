@@ -2,7 +2,7 @@ package org.example.dao.jdbc;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.bl.Util;
+import org.example.util.UtilJDBC;
 import org.example.dao.ProductDAO;
 import org.example.entity.Product;
 
@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcProductDAO extends Util implements ProductDAO {
+public class JdbcProductDAO extends UtilJDBC implements ProductDAO {
     private static Logger logger = LogManager.getLogger();
 
     @Override

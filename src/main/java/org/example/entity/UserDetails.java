@@ -1,10 +1,25 @@
 package org.example.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "user_details")
 public class UserDetails {
 
+    @Id
+    @Column(name = "user_details_id")
     private int UserDetailsId;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "age")
     private int age;
+
+    @Column(name = "city")
     private String city;
 
     public int getUserDetailsId() {

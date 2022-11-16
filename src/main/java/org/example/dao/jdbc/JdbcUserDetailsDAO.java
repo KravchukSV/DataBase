@@ -2,16 +2,15 @@ package org.example.dao.jdbc;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.bl.Util;
+import org.example.util.UtilJDBC;
 import org.example.dao.UserDetailsDAO;
-import org.example.entity.User;
 import org.example.entity.UserDetails;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcUserDetailsDAO extends Util implements UserDetailsDAO {
+public class JdbcUserDetailsDAO extends UtilJDBC implements UserDetailsDAO {
     private static Logger logger = LogManager.getLogger();
 
     @Override

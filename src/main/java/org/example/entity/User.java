@@ -1,8 +1,18 @@
 package org.example.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    //@GeneratedValue
+    @Column(name = "user_id")
     private int userId;
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "user_details_id")
     private int userDetailsId;
 
     public User(){}

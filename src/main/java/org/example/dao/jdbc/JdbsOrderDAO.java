@@ -2,16 +2,15 @@ package org.example.dao.jdbc;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.bl.Util;
+import org.example.util.UtilJDBC;
 import org.example.dao.OrderDAO;
 import org.example.entity.Order;
-import org.example.entity.User;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbsOrderDAO extends Util implements OrderDAO {
+public class JdbsOrderDAO extends UtilJDBC implements OrderDAO {
 
     private static Logger logger = LogManager.getLogger();
 

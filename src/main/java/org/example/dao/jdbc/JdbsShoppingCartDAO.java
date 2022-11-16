@@ -2,7 +2,7 @@ package org.example.dao.jdbc;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.bl.Util;
+import org.example.util.UtilJDBC;
 import org.example.dao.ShoppingCartDAO;
 
 import java.sql.Connection;
@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbsShoppingCartDAO extends Util implements ShoppingCartDAO {
+public class JdbsShoppingCartDAO extends UtilJDBC implements ShoppingCartDAO {
     private static Logger logger = LogManager.getLogger();
     @Override
     public int addProductUser(int productId, int userId) {
