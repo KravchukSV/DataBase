@@ -1,5 +1,6 @@
 package org.example.dao.hibernate;
 
+import jakarta.persistence.PersistenceException;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaDelete;
@@ -34,9 +35,15 @@ public class HibernateShoppingCartDAO extends UtilHibernate implements ShoppingC
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        session.persist(shoppingCart);
+        try{
+            session.persist(shoppingCart);
+            transaction.commit();
+        }
+        catch (PersistenceException persistenceException){
+            transaction.rollback();
+            logger.error("Failed to add product to cart!!!");
+        }
 
-        transaction.commit();
         session.close();
 
         logger.trace("End method HibernateShoppingCartDao addProductUser");

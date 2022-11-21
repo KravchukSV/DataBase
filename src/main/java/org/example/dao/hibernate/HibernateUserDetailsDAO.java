@@ -1,5 +1,6 @@
 package org.example.dao.hibernate;
 
+import jakarta.persistence.PersistenceException;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
@@ -32,8 +33,14 @@ public class HibernateUserDetailsDAO extends UtilHibernate implements UserDetail
 
         Session sessionAdd = sessionFactory.openSession();
         Transaction transactionAdd = sessionAdd.beginTransaction();
-        sessionAdd.persist(userDetails);
-        transactionAdd.commit();
+        try {
+            sessionAdd.persist(userDetails);
+            transactionAdd.commit();
+        }
+        catch (PersistenceException persistenceException){
+            transactionAdd.rollback();
+            logger.error("No new user details added!!!");
+        }
         sessionAdd.close();
 
         logger.trace("End method HibernateUserDetailsDao add");
@@ -110,8 +117,16 @@ public class HibernateUserDetailsDAO extends UtilHibernate implements UserDetail
         String hql = "SELECT COUNT(ud.id)" +
                 "FROM UserDetails ud";
         Query query = session.createQuery(hql);
-        int count = (int) query.list().get(0);
-        session.close();
+        int count;
+        try {
+            count = (int) query.list().get(0);
+        }
+        catch (ClassCastException e){
+            return 0;
+        }
+        finally {
+            session.close();
+        }
 
         return count;
     }

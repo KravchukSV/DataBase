@@ -7,16 +7,25 @@
                 <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
             </PatternLayout>
         </File>
+        <File name="LogToFileHibernate" fileName="logs/logHibernate.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+        </File>
     </Appenders>
 
     <Loggers>
         <Logger name= "org.example.dao.jdbc" level="trace" additivity="false">
             <AppenderRef ref="LogToFileJDBS"/>
         </Logger>
+        <Logger name= "org.example.dao.hibernate" level="trace" additivity="false">
+            <AppenderRef ref="LogToFileHibernate"/>
+        </Logger>
 
         <!-- Root Logger -->
         <Root level="all">
             <AppenderRef ref="LogToFileJDBC"/>
+            <AppenderRef ref="LogToFileHibernate"/>
         </Root>
     </Loggers>
 

@@ -1,5 +1,6 @@
 package org.example.dao.hibernate;
 
+import jakarta.persistence.OptimisticLockException;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
@@ -13,6 +14,7 @@ import org.example.entity.UserDetails;
 import org.example.util.UtilHibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.StaleObjectStateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
@@ -36,8 +38,13 @@ public class HibernateOrderDAO extends UtilHibernate implements OrderDAO {
         int startCount = countOrders();
         Session sessionAdd = sessionFactory.openSession();
         Transaction transaction = sessionAdd.beginTransaction();
-        sessionAdd.persist(order);
-        transaction.commit();
+        try {
+            sessionAdd.persist(order);
+            transaction.commit();
+        }
+        catch (OptimisticLockException e){
+            transaction.rollback();
+        }
         sessionAdd.close();
         logger.trace("End method HibernateOrderDao addOrder");
         return countOrders()-startCount;
@@ -47,17 +54,23 @@ public class HibernateOrderDAO extends UtilHibernate implements OrderDAO {
     public List<Order> getOrdersUser(int userId) {
         logger.trace("Start method HibernateOrderDao getOrderUser");
         Session sessionGetOrderUser = sessionFactory.openSession();
+        List<Order> orderListUser = null;
 
         CriteriaBuilder criteriaBuilder = sessionGetOrderUser.getCriteriaBuilder();
 
         CriteriaQuery<Order> criteriaQuery = criteriaBuilder.createQuery(Order.class);
         Root<Order> root = criteriaQuery.from(Order.class);
 
-        CriteriaQuery<Order> queryGetOrdersUser = criteriaQuery.select(root)
-                .where(criteriaBuilder.equal(root.get("userId"), userId));
+        try {
+            CriteriaQuery<Order> queryGetOrdersUser = criteriaQuery.select(root)
+                    .where(criteriaBuilder.equal(root.get("userId"), userId));
 
-        TypedQuery<Order> typedQuery = sessionGetOrderUser.createQuery(queryGetOrdersUser);
-        List<Order> orderListUser = typedQuery.getResultList();
+            TypedQuery<Order> typedQuery = sessionGetOrderUser.createQuery(queryGetOrdersUser);
+            orderListUser = typedQuery.getResultList();
+        }
+        catch (IllegalArgumentException e){
+            logger.error("Could not get orders user!!!");
+        }
 
         sessionGetOrderUser.close();
         logger.trace("End method HibernateOrderDao getOrderUser");
