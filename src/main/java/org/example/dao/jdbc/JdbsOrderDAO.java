@@ -13,6 +13,7 @@ import java.util.List;
 public class JdbsOrderDAO extends UtilJDBC implements OrderDAO {
 
     private static Logger logger = LogManager.getLogger();
+    private JdbsUserDAO jdbsUserDAO = new JdbsUserDAO();
 
     @Override
     public int addOrder(Order order) {
@@ -27,7 +28,7 @@ public class JdbsOrderDAO extends UtilJDBC implements OrderDAO {
         ) {
             preparedStatement.setString(1, order.getListProduct());
             preparedStatement.setInt(2, order.getOrderPrice());
-            preparedStatement.setInt(3, order.getUserId());
+            preparedStatement.setInt(3, order.getUser().getUserId());
             preparedStatement.setDate(4, order.getOrderDate());
 
             addResult = preparedStatement.executeUpdate();
@@ -36,7 +37,6 @@ public class JdbsOrderDAO extends UtilJDBC implements OrderDAO {
 
         } catch (SQLException e) {
             logger.error("No new order added!!!");
-            //throw new RuntimeException(e);
         }
         logger.trace("End method JdbsUserDao add");
         return addResult;
@@ -59,7 +59,8 @@ public class JdbsOrderDAO extends UtilJDBC implements OrderDAO {
                 order.setOrderId(resultSet.getInt("order_id"));
                 order.setListProduct(resultSet.getString("list_product"));
                 order.setOrderPrice(resultSet.getInt("order_price"));
-                order.setUserId(resultSet.getInt("user_id"));
+
+                order.setUser(jdbsUserDAO.getById(resultSet.getInt("user_id")));
                 order.setOrderDate(resultSet.getDate("order_date"));
 
                 orders.add(order);
@@ -91,7 +92,8 @@ public class JdbsOrderDAO extends UtilJDBC implements OrderDAO {
                 order.setOrderId(resultSet.getInt("order_id"));
                 order.setListProduct(resultSet.getString("list_product"));
                 order.setOrderPrice(resultSet.getInt("order_price"));
-                order.setUserId(resultSet.getInt("user_id"));
+                //order.getUser().setUserId(resultSet.getInt("user_id"));
+                order.setUser(jdbsUserDAO.getById(resultSet.getInt("user_id")));
                 order.setOrderDate(resultSet.getDate("order_date"));
 
                 orders.add(order);

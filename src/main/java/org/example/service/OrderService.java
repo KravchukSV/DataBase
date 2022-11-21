@@ -3,6 +3,7 @@ package org.example.service;
 import org.example.dao.FactoryDAO;
 import org.example.entity.Order;
 import org.example.entity.Product;
+import org.example.entity.ShoppingCart;
 import org.example.entity.User;
 
 import java.sql.Date;
@@ -16,22 +17,22 @@ public class OrderService {
     }
 
     public void toOrder(User user){
-        List<Integer> idProducts = factoryDAO.getShoppingCartDAO().getAllProductsUser(user.getUserId());
+        List<ShoppingCart> shoppingCartList = factoryDAO.getShoppingCartDAO().getAllProductsUser(user.getUserId());
 
-        if(idProducts.size() > 0){
-            Order userOrder = createOrder(idProducts, user.getUserId());
+        if(shoppingCartList.size() > 0){
+            Order userOrder = createOrder(shoppingCartList, user);
 
             factoryDAO.getOrderDAO().addOrder(userOrder);
             factoryDAO.getShoppingCartDAO().removeAllProductsUser(user.getUserId());
         }
     }
 
-    private Order createOrder(List<Integer> idProduct, int user_id){
+    private Order createOrder(List<ShoppingCart> shoppingCartList, User user){
         String list = "";
         int sumOrder = 0;
 
-        for(int id : idProduct){
-            Product product = factoryDAO.getProductDAO().getById(id);
+        for(ShoppingCart shoppingCart : shoppingCartList){
+            Product product = factoryDAO.getProductDAO().getById(shoppingCart.getProductId());
             list += product.getName() + ", ";
             sumOrder += product.getPrice();
         }
@@ -39,7 +40,7 @@ public class OrderService {
         Order order = new Order();
         order.setListProduct(list);
         order.setOrderPrice(sumOrder);
-        order.setUserId(user_id);
+        order.setUser(user);
         order.setOrderDate(new Date(System.currentTimeMillis()));
 
         return order;

@@ -2,6 +2,7 @@ package org.example.dao.jdbc;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.entity.ShoppingCart;
 import org.example.util.UtilJDBC;
 import org.example.dao.ShoppingCartDAO;
 
@@ -14,8 +15,10 @@ import java.util.List;
 
 public class JdbsShoppingCartDAO extends UtilJDBC implements ShoppingCartDAO {
     private static Logger logger = LogManager.getLogger();
+    private JdbsUserDAO jdbsUserDAO = new JdbsUserDAO();
+    private JdbcProductDAO jdbcProductDAO = new JdbcProductDAO();
     @Override
-    public int addProductUser(int productId, int userId) {
+    public int addProductUser(ShoppingCart shoppingCart) {
         logger.trace("Start method JdbsShoppingCartDAO addProductUser");
 
         int resultAdd = 0;
@@ -25,8 +28,8 @@ public class JdbsShoppingCartDAO extends UtilJDBC implements ShoppingCartDAO {
                 Connection connection = getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(sql)
                 ){
-            preparedStatement.setInt(1, userId);
-            preparedStatement.setInt(2, productId);
+            preparedStatement.setInt(1, shoppingCart.getUserId());
+            preparedStatement.setInt(2, shoppingCart.getProductId());
 
             resultAdd = preparedStatement.executeUpdate();
 
@@ -39,7 +42,7 @@ public class JdbsShoppingCartDAO extends UtilJDBC implements ShoppingCartDAO {
     }
 
     @Override
-    public int removeProductUser(int productId, int userId) {
+    public int removeProductUser(ShoppingCart shoppingCart) {
         logger.trace("Start method JdbsShoppingCartDAO removeProductUser");
 
         int resultRemove = 0;
@@ -49,8 +52,8 @@ public class JdbsShoppingCartDAO extends UtilJDBC implements ShoppingCartDAO {
                 Connection connection = getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(sql)
         ){
-            preparedStatement.setInt(1, userId);
-            preparedStatement.setInt(2, productId);
+            preparedStatement.setInt(1, shoppingCart.getUserId());
+            preparedStatement.setInt(2, shoppingCart.getProductId());
 
             resultRemove = preparedStatement.executeUpdate();
 
@@ -63,11 +66,11 @@ public class JdbsShoppingCartDAO extends UtilJDBC implements ShoppingCartDAO {
     }
 
     @Override
-    public List<Integer> getAllProductsUser(int userId) {
+    public List<ShoppingCart> getAllProductsUser(int userId) {
         logger.trace("Start method JdbsShoppingCartDAO getAllProductsUser");
 
-        List<Integer> listProductId = new ArrayList<>();
-        String sql = "SELECT product_id FROM shopping_cart WHERE user_id = ?";
+        List<ShoppingCart> listProductId = new ArrayList<>();
+        String sql = "SELECT user_id, product_id FROM shopping_cart WHERE user_id = ?";
 
         try (
                 Connection connection = getConnection();
@@ -76,7 +79,11 @@ public class JdbsShoppingCartDAO extends UtilJDBC implements ShoppingCartDAO {
 
         ){
             while (resultSet.next()){
-                listProductId.add(resultSet.getInt("product_id"));
+                ShoppingCart shoppingCart = new ShoppingCart();
+                shoppingCart.setUserId(resultSet.getInt("user_id"));
+                shoppingCart.setProductId(resultSet.getInt("product_id"));
+
+                listProductId.add(shoppingCart);
             }
 
         } catch (SQLException e) {

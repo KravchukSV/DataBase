@@ -12,6 +12,7 @@ import java.util.List;
 
 public class JdbsUserDAO extends UtilJDBC implements UserDAO {
     private static Logger logger = LogManager.getLogger();
+    private JdbcUserDetailsDAO jdbcUserDetailsDAO = new JdbcUserDetailsDAO();
 
     @Override
     public int add(User user) {
@@ -25,14 +26,13 @@ public class JdbsUserDAO extends UtilJDBC implements UserDAO {
         ) {
             preparedStatement.setInt(1, user.getUserId());
             preparedStatement.setString(2, user.getName());
-            preparedStatement.setInt(3, user.getUserDetailsId());
+            preparedStatement.setInt(3, user.getUserDetails().getUserDetailsId());
             addResult = preparedStatement.executeUpdate();
 
             logger.info("add new User");
 
         } catch (SQLException e) {
             logger.error("No new user added!!!");
-            //throw new RuntimeException(e);
         }
         logger.trace("End method JdbsUserDao add");
         return addResult;
@@ -53,7 +53,9 @@ public class JdbsUserDAO extends UtilJDBC implements UserDAO {
 
                 user.setUserId(resultSet.getInt("user_id"));
                 user.setName(resultSet.getString("name"));
-                user.setUserDetailsId(resultSet.getInt("user_details_id"));
+                //user.getUserDetails().setUserDetailsId(resultSet.getInt("user_details_id"));
+
+                user.setUserDetails(jdbcUserDetailsDAO.getById(resultSet.getInt("user_details_id")));
 
                 users.add(user);
             }
@@ -84,13 +86,14 @@ public class JdbsUserDAO extends UtilJDBC implements UserDAO {
             if(resultSet.next()){
                 user.setUserId(resultSet.getInt("user_id"));
                 user.setName(resultSet.getString("name"));
-                user.setUserDetailsId(resultSet.getInt("user_details_id"));
+                //user.getUserDetails().setUserDetailsId(resultSet.getInt("user_details_id"));
+
+                user.setUserDetails(jdbcUserDetailsDAO.getById(resultSet.getInt("user_details_id")));
             }
             logger.info("returning the user by id");
 
         } catch (SQLException e) {
             logger.error("It was not possible to return the user by id!!!");
-            //throw new RuntimeException(e);
         }
 
         logger.trace("End method JdbsUserDao getById");
@@ -114,7 +117,7 @@ public class JdbsUserDAO extends UtilJDBC implements UserDAO {
 
             preparedStatement.setInt(1, user.getUserId());
             preparedStatement.setString(2, user.getName());
-            preparedStatement.setInt(3, user.getUserDetailsId());
+            preparedStatement.setInt(3, user.getUserDetails().getUserDetailsId());
             preparedStatement.setInt(4, user.getUserId());
             logger.info("updating user information");
 
@@ -122,7 +125,6 @@ public class JdbsUserDAO extends UtilJDBC implements UserDAO {
 
         } catch (SQLException e) {
             logger.error("Failed to update user information!!!");
-            //throw new RuntimeException(e);
         }
         logger.trace("End method JdbsUserDao update");
         return resultUpdate;

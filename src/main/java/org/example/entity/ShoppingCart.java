@@ -1,8 +1,17 @@
 package org.example.entity;
 
-public class ShoppingCart {
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "shopping_cart")
+@IdClass(ShoppingCartPK.class)
+public class ShoppingCart {
+    @Id
+    @Column(name = "user_id")
     private int userId;
+
+    @Id
+    @Column(name = "product_id")
     private int productId;
 
     public int getUserId() {

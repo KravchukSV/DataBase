@@ -2,6 +2,7 @@ package org.example.dao.jdbc;
 
 import org.example.dao.UserDAO;
 import org.example.entity.User;
+import org.example.entity.UserDetails;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,10 +12,7 @@ class JdbsUserDAOTest {
 
     @Test
     void remove() {
-        User user = new User();
-        user.setUserId(0);
-        user.setName("Sam");
-        user.setUserDetailsId(1);
+        User user = getUser();
 
         int actual = userDAO.remove(user);
         int expected = 0;
@@ -23,10 +21,7 @@ class JdbsUserDAOTest {
 
     @Test
     void update() {
-        User user = new User();
-        user.setUserId(0);
-        user.setName("Sam");
-        user.setUserDetailsId(1);
+        User user = getUser();
 
         int actual = userDAO.update(user);
         int expected = 0;
@@ -38,10 +33,8 @@ class JdbsUserDAOTest {
 
     @Test
     void getById() {
-        User expectedUser = new User();
+        User expectedUser = getUser();
         expectedUser.setUserId(1);
-        expectedUser.setName("Black");
-        expectedUser.setUserDetailsId(1);
 
         User actualUser = userDAO.getById(1);
 
@@ -50,14 +43,27 @@ class JdbsUserDAOTest {
 
     @Test
     void add() {
-        User user = new User();
+        User user = getUser();
         user.setUserId(1);
-        user.setName("Sam");
-        user.setUserDetailsId(1);
 
         int actual = userDAO.add(user);
         int expected = 0;
 
         assertEquals(expected, actual);
+    }
+
+    private User getUser(){
+        UserDetails userDetails = new UserDetails();
+        userDetails.setUserDetailsId(1);
+        userDetails.setCity("test");
+        userDetails.setLastName("test");
+        userDetails.setAge(0);
+
+        User user = new User();
+        user.setUserId(0);
+        user.setName("Black");
+        user.setUserDetails(userDetails);
+
+        return user;
     }
 }

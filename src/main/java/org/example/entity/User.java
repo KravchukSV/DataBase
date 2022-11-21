@@ -12,10 +12,14 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "user_details_id")
-    private int userDetailsId;
+    @OneToOne
+    @JoinColumn(name = "user_details_id")
+    private UserDetails userDetails;
 
-    public User(){}
+
+    public User(){
+        userDetails = new UserDetails();
+    }
 
     public int getUserId() {
         return userId;
@@ -33,12 +37,12 @@ public class User {
         this.name = name;
     }
 
-    public int getUserDetailsId() {
-        return userDetailsId;
+    public UserDetails getUserDetails() {
+        return userDetails;
     }
 
-    public void setUserDetailsId(int userDetailsId) {
-        this.userDetailsId = userDetailsId;
+    public void setUserDetails(UserDetails userDetails) {
+        this.userDetails = userDetails;
     }
 
     @Override
@@ -49,15 +53,15 @@ public class User {
         User user = (User) o;
 
         if (getUserId() != user.getUserId()) return false;
-        if (getUserDetailsId() != user.getUserDetailsId()) return false;
-        return getName() != null ? getName().equals(user.getName()) : user.getName() == null;
+        if (getName() != null ? !getName().equals(user.getName()) : user.getName() != null) return false;
+        return getUserDetails().getUserDetailsId() == user.getUserDetails().getUserDetailsId();
     }
 
     @Override
     public int hashCode() {
         int result = getUserId();
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
-        result = 31 * result + getUserDetailsId();
+        result = 31 * result + getUserDetails().getUserDetailsId();
         return result;
     }
 
@@ -66,7 +70,7 @@ public class User {
         return "User{" +
                 "userId=" + userId +
                 ", name='" + name + '\'' +
-                ", userDetailsId=" + userDetailsId +
+                ", userDetailsId=" + userDetails.getUserDetailsId() +
                 '}';
     }
 }
