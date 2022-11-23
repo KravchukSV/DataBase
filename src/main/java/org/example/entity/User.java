@@ -12,7 +12,7 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_details_id")
     private UserDetails userDetails;
 
