@@ -19,13 +19,12 @@ class HibernateOrderDAOTest {
 
         Order order = new Order();
 
-        order.setOrderId(0);
         order.setListProduct("milk");
         order.setOrderPrice(50);
         order.setUser(user);
         order.setOrderDate(new Date(System.currentTimeMillis()));
 
-        int expected = 0;
+        int expected = 1;
         int actual = orderDAO.addOrder(order);
 
         assertEquals(expected, actual);

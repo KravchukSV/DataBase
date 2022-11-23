@@ -14,7 +14,6 @@ import org.example.entity.UserDetails;
 import org.example.util.UtilHibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.StaleObjectStateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
@@ -101,13 +100,21 @@ public class HibernateOrderDAO extends UtilHibernate implements OrderDAO {
 
     private int countOrders(){
         Session session = sessionFactory.openSession();
-        String hql = "SELECT COUNT(ord.orderId)" +
+        String hql = "SELECT COUNT(ord.id)" +
                 "FROM Order ord";
         Query query = session.createQuery(hql);
-        long count = (long) query.list().get(0);
-        session.close();
+        Long count;
+        try {
+            count = (Long) query.list().get(0);
+        }
+        catch (ClassCastException e){
+            return 0;
+        }
+        finally {
+            session.close();
+        }
 
-        return (int) count;
+        return Math.toIntExact(count);
     }
 
 }

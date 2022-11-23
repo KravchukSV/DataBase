@@ -86,17 +86,19 @@ public class HibernateUserDAO extends UtilHibernate implements UserDAO {
     @Override
     public int update(User user) {
         logger.trace("Start method HibernateUserDao update");
-        int startCount = countUsers();
 
         Session sessionUpdate = sessionFactory.openSession();
         Transaction transactionUpdate = sessionUpdate.beginTransaction();
+
+        User userToChanges = getById(user.getUserId());
+
         sessionUpdate.merge(user);
         transactionUpdate.commit();
         sessionUpdate.close();
 
         logger.trace("End method HibernateUserDao update");
 
-        return countUsers() - startCount;
+        return userToChanges.equals(user)?0:1;
     }
 
     @Override
@@ -106,8 +108,14 @@ public class HibernateUserDAO extends UtilHibernate implements UserDAO {
 
         Session sessionRemove = sessionFactory.openSession();
         Transaction transactionRemove = sessionRemove.beginTransaction();
-        sessionRemove.remove(user);
-        transactionRemove.commit();
+        try {
+            sessionRemove.remove(user);
+            transactionRemove.commit();
+        }
+        catch (PersistenceException e){
+            transactionRemove.rollback();
+            logger.error("Failed to delete user!!!");
+        }
         sessionRemove.close();
 
         logger.trace("End method HibernateUserDao remove");
@@ -118,11 +126,11 @@ public class HibernateUserDAO extends UtilHibernate implements UserDAO {
     private int countUsers(){
         Session session = sessionFactory.openSession();
         String hql = "SELECT COUNT(user.id)" +
-                "FROM User user";
+                     "FROM User user";
         Query query = session.createQuery(hql);
-        int count;
+        Long count;
         try {
-            count = (int) query.list().get(0);
+            count = (Long) query.list().get(0);
         }
         catch (ClassCastException e){
             return 0;
@@ -131,6 +139,6 @@ public class HibernateUserDAO extends UtilHibernate implements UserDAO {
             session.close();
         }
 
-        return count;
+        return Math.toIntExact(count);
     }
 }

@@ -82,12 +82,15 @@ public class HibernateProductDAO extends UtilHibernate implements ProductDAO {
         int startCount = countProducts();
         Session sessionUpdate = sessionFactory.openSession();
         Transaction transactionUpdate = sessionUpdate.beginTransaction();
+
+        Product productToChanges = getById(product.getProductId());
+
         sessionUpdate.merge(product);
         transactionUpdate.commit();
         sessionUpdate.close();
 
         logger.trace("End method HibernateProductDao update");
-        return countProducts() - startCount;
+        return productToChanges.equals(product)?0:1;
     }
 
     @Override
@@ -111,9 +114,9 @@ public class HibernateProductDAO extends UtilHibernate implements ProductDAO {
         String hql = "SELECT COUNT(product.id)" +
                 "FROM Product product";
         Query query = session.createQuery(hql);
-        int count;
+        Long count;
         try {
-            count = (int) query.list().get(0);
+            count = (Long) query.list().get(0);
         }
         catch (ClassCastException e){
             return 0;
@@ -122,6 +125,6 @@ public class HibernateProductDAO extends UtilHibernate implements ProductDAO {
             session.close();
         }
 
-        return count;
+        return Math.toIntExact(count);
     }
 }

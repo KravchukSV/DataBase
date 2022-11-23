@@ -118,9 +118,17 @@ public class HibernateShoppingCartDAO extends UtilHibernate implements ShoppingC
         String hql = "SELECT COUNT(sc.id)" +
                 "FROM ShoppingCart sc";
         Query query = session.createQuery(hql);
-        long count = (long) query.list().get(0);
-        session.close();
+        Long count;
+        try {
+            count = (Long) query.list().get(0);
+        }
+        catch (ClassCastException e){
+            return 0;
+        }
+        finally {
+            session.close();
+        }
 
-        return (int) count;
+        return Math.toIntExact(count);
     }
 }

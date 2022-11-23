@@ -8,6 +8,7 @@ import jakarta.persistence.criteria.Root;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.dao.UserDetailsDAO;
+import org.example.entity.User;
 import org.example.entity.UserDetails;
 import org.example.util.UtilHibernate;
 import org.hibernate.Session;
@@ -87,13 +88,16 @@ public class HibernateUserDetailsDAO extends UtilHibernate implements UserDetail
 
         Session sessionUpdate = sessionFactory.openSession();
         Transaction transactionUpdate = sessionUpdate.beginTransaction();
+
+        UserDetails userDetailsToChanges = getById(userDetails.getUserDetailsId());
+
         sessionUpdate.merge(userDetails);
         transactionUpdate.commit();
         sessionUpdate.close();
 
         logger.trace("End method HibernateUserDetailsDao update");
 
-        return countUserDetails() - startCount;
+        return userDetailsToChanges.equals(userDetails)?0:1;
     }
 
     @Override
@@ -117,9 +121,9 @@ public class HibernateUserDetailsDAO extends UtilHibernate implements UserDetail
         String hql = "SELECT COUNT(ud.id)" +
                 "FROM UserDetails ud";
         Query query = session.createQuery(hql);
-        int count;
+        Long count;
         try {
-            count = (int) query.list().get(0);
+            count = (Long) query.list().get(0);
         }
         catch (ClassCastException e){
             return 0;
@@ -128,6 +132,6 @@ public class HibernateUserDetailsDAO extends UtilHibernate implements UserDetail
             session.close();
         }
 
-        return count;
+        return Math.toIntExact(count);
     }
 }
